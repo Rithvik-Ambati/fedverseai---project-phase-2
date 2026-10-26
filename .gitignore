@@ -1,0 +1,32 @@
+# ---- dependencies and build output (reinstall / recompile, see README) ----
+node_modules/
+chain/cache/
+chain/artifacts/
+chain/node.log
+
+# ---- Besu binaries and the generated QBFT validator keys / chain data ----
+# download Besu yourself (README, "Real BFT network"); the network files are regenerated on first start
+chain/besu-dist/
+chain/qbft/
+
+# ---- downloaded dataset cache (Covertype is fetched automatically on first use) ----
+data/sk/
+
+# ---- python ----
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# ---- local outputs ----
+dist/
+results/distributed/
+results/distributed_*/
+results/*.log
+report_assets/data/extra_run.log
+
+# ---- not part of the code: presentations, report templates, tool caches ----
+*.pptx
+*.zip
+.deepeval/

@@ -1,0 +1,17 @@
+**Which defence stops which attack.**
+
+| attack                              | Secure aggregation   | DP noise   | Commitments + verify   | Survivor check   | Noise audit   | ZK norm proof   | Validation gate   | Blame phase   | Budget + stake   | Hash chain / BFT   |
+|:------------------------------------|:---------------------|:-----------|:-----------------------|:-----------------|:--------------|:----------------|:------------------|:--------------|:-----------------|:-------------------|
+| Server reads an update              | primary              |            |                        |                  |               |                 |                   |               |                  |                    |
+| Membership inference                |                      | primary    |                        |                  |               |                 |                   |               | partial          |                    |
+| Poisoning (large norm)              |                      |            |                        |                  | partial       | primary         | partial           |               | partial          |                    |
+| Sleeper poisoning                   |                      |            |                        |                  | partial       | primary         | partial           |               | partial          |                    |
+| Forged masked input                 |                      |            | primary                |                  |               |                 |                   | primary       | partial          |                    |
+| Server tampers with aggregate       |                      |            | primary                | partial          |               |                 |                   | partial       | partial          | partial            |
+| Server drops a hospital             |                      |            |                        | primary          |               |                 |                   | partial       |                  | partial            |
+| Client skips DP noise               |                      |            |                        |                  | primary       |                 |                   |               | partial          |                    |
+| Under-declares noise (budget dodge) |                      |            |                        |                  |               |                 |                   |               | primary          |                    |
+| Over-spends privacy budget          |                      |            |                        |                  |               |                 |                   |               | primary          |                    |
+| Rewrite ledger history              |                      |            |                        |                  |               |                 |                   |               |                  | primary            |
+| Swap a stored model                 |                      |            |                        |                  |               |                 |                   |               |                  | primary            |
+| Label-flip inside the bound         |                      |            |                        |                  |               | partial         | partial           |               |                  |                    |

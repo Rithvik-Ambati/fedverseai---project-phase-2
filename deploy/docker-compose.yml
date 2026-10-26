@@ -1,0 +1,25 @@
+# docker compose -f deploy/docker-compose.yml up --build      (UNTESTED - Docker daemon was not running on the dev machine)
+# Roles: chain (Hardhat EVM node) -> deployer (deploys + registers) -> server -> hospital0..3. Each hospital container
+# should mount ONLY its own data silo in a real deployment; here the repo's data/ folder is baked into the image.
+x-common: &common
+  build: { context: .., dockerfile: deploy/Dockerfile }
+  volumes: [ "run:/app/results/distributed" ]
+  environment: { FEDSEC_RPC: "http://chain:8545" }
+services:
+  chain:
+    <<: *common
+    command: sh -c "cd chain && npx hardhat node --hostname 0.0.0.0"
+  deployer:
+    <<: *common
+    depends_on: [chain]
+    command: python -m fedsec.dist.deploy --clients 4 --rounds 3 --epochs 5
+  server:
+    <<: *common
+    depends_on: [deployer]
+    environment: { FEDSEC_RPC: "http://chain:8545", FEDSEC_BIND: "0.0.0.0" }
+    command: python -m fedsec.dist.server --config results/distributed/run.json
+  hospital0: { <<: *common, depends_on: [server], command: "python -m fedsec.dist.client --cid 0 --server http://server:9100 --deploy results/distributed/deploy.json --out results/distributed --rounds 3" }
+  hospital1: { <<: *common, depends_on: [server], command: "python -m fedsec.dist.client --cid 1 --server http://server:9100 --deploy results/distributed/deploy.json --out results/distributed --rounds 3" }
+  hospital2: { <<: *common, depends_on: [server], command: "python -m fedsec.dist.client --cid 2 --server http://server:9100 --deploy results/distributed/deploy.json --out results/distributed --rounds 3" }
+  hospital3: { <<: *common, depends_on: [server], command: "python -m fedsec.dist.client --cid 3 --server http://server:9100 --deploy results/distributed/deploy.json --out results/distributed --rounds 3" }
+volumes: { run: {} }

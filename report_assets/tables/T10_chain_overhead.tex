@@ -1,0 +1,14 @@
+\begin{table}
+\caption{Measured gas and latency on the real chain vs number of hospitals (5 rounds).}
+\label{tab:T10_chain_overhead}
+\begin{tabular}{rrrrrrrrrrr}
+\toprule
+clients & rounds & transactions & tx\_per\_round & gas\_per\_round & max\_single\_tx\_gas & deploy\_gas & seconds\_per\_round & eps\_on\_chain & eps\_analytic & acc \\
+\midrule
+4 & 5 & 113 & 21.800 & 2193048.600 & 756255 & 3614006 & 1.051 & 8.006 & 8.000 & 0.810 \\
+8 & 5 & 203 & 39.000 & 3914493.600 & 1287327 & 3614006 & 0.759 & 8.006 & 8.000 & 0.827 \\
+16 & 5 & 386 & 74.000 & 7386502.200 & 2349495 & 3614006 & 1.315 & 8.006 & 8.000 & 0.827 \\
+32 & 5 & 739 & 141.400 & 14177619.000 & 4473819 & 3614006 & 2.424 & 8.006 & 8.000 & 0.835 \\
+\bottomrule
+\end{tabular}
+\end{table}

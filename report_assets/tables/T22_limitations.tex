@@ -1,0 +1,20 @@
+\begin{table}
+\caption{Known limitations and what is not claimed.}
+\label{tab:T22_limitations}
+\begin{tabular}{ll}
+\toprule
+limitation & status \\
+\midrule
+TEE-based audit & not implemented: needs secure-enclave hardware \\
+Shapley rewards & not implemented: need individual updates, hidden by secure aggregation; stake/slash/reward used instead \\
+Noise correctness & audited (seeded audit), not proven in zero knowledge \\
+Label-flip inside the norm bound & bounded, not detected \\
+Robust aggregation baselines & match or beat our accuracy under attack but see every individual update \\
+Covertype (MLP, 4 clients) & client-level DP is expensive; no advantage of distributed DP \\
+ZK proof cost & linear in parameters; impractical beyond a few hundred \\
+Secure aggregation & passive-secure against the server (no consistency round) \\
+Chain & one Hardhat node = no consensus; Besu QBFT = 4 validators on one machine \\
+Cryptographic parameters & demo-sized (1024-bit group) \\
+\bottomrule
+\end{tabular}
+\end{table}

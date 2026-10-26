@@ -1,0 +1,17 @@
+clients,variant,time_per_round_s,bytes_per_client_round,gas_per_round
+4,FedAvg,0.18,112.0,0.0
+4,+DP,0.17,112.0,0.0
+4,+DP+SecAgg,0.19,1240.0,0.0
+4,+DP+SecAgg+Ledger (full),0.21,1400.0,1361377.6
+8,FedAvg,0.2,112.0,0.0
+8,+DP,0.21,112.0,0.0
+8,+DP+SecAgg,0.28,2032.0,0.0
+8,+DP+SecAgg+Ledger (full),0.32,2192.0,2553532.8
+16,FedAvg,0.27,112.0,0.0
+16,+DP,0.24,112.0,0.0
+16,+DP+SecAgg,0.24,3616.0,0.0
+16,+DP+SecAgg+Ledger (full),0.26,3776.0,4824350.4
+32,FedAvg,0.21,112.0,0.0
+32,+DP,0.23,112.0,0.0
+32,+DP+SecAgg,0.35,6784.0,0.0
+32,+DP+SecAgg+Ledger (full),0.39,6944.0,9577608.0

@@ -1,0 +1,282 @@
+{
+ "figures": [
+  {
+   "id": "F02_privacy_vs_accuracy",
+   "caption": "Privacy-utility trade-off. Left: test accuracy against the privacy budget epsilon for local DP (every hospital adds full noise) and our distributed DP under secure aggregation (noise split across hospitals); dashed line is FedAvg without privacy. Right: with epsilon fixed at 8, fewer communication rounds are better under DP. Mean +/- 1 s.d. over 8 seeds; four real hospital silos.",
+   "slide": "slide 17",
+   "section": "RQ1"
+  },
+  {
+   "id": "F03_membership_inference",
+   "caption": "Membership inference on 50 planted canary records against an over-fitted model. Attacker AUC falls from 0.66 without DP to chance (0.5) for epsilon <= 16; bars annotate the accuracy cost. Mean +/- s.d. over 5 seeds.",
+   "slide": "slide 18",
+   "section": "RQ2"
+  },
+  {
+   "id": "F06_attacks_undefended_vs_defended",
+   "caption": "Seven attacks against the undefended system (DP + secure aggregation) and the full system. Labels show whether the full system detected the attack; label-flipping inside the norm bound is the stated limit. 20 seeds.",
+   "slide": "slides 20-21",
+   "section": "RQ2"
+  },
+  {
+   "id": "F13_audit_rate_tradeoff",
+   "caption": "Audit-rate trade-off. Left: the seeded-noise audit catches a hospital that skips its DP noise (statistical audit never does at 14 parameters). Middle: accuracy with a poisoner present against audit rate. Right: the price, the share of rounds in which an honest hospital is opened.",
+   "slide": "slide 22",
+   "section": "RQ2"
+  },
+  {
+   "id": "F16_overhead_vs_clients",
+   "caption": "Overhead of each layer against the number of hospitals: communication per hospital per round, compute per round, and measured gas on the real chain.",
+   "slide": "slide 23",
+   "section": "RQ3"
+  },
+  {
+   "id": "F15_dropout_tolerance",
+   "caption": "Dropout tolerance. Left: rounds completed against the share of hospitals that disconnect. Right: epsilon actually spent; the contract charges the real cost, which rises with dropout because dropped hospitals take their noise share with them.",
+   "slide": "slide 24",
+   "section": "RQ3"
+  },
+  {
+   "id": "F07_fixing_late_detection",
+   "caption": "Fixing late detection. Random audits alone leave large variance (a late catch leaves a damaged model); the validation gate and the zero-knowledge norm proofs restore accuracy for persistent and sleeper poisoners. 16 seeds (ZK: 8).",
+   "slide": "slide 22 (new)",
+   "section": "RQ2"
+  },
+  {
+   "id": "F09_vs_robust_aggregation",
+   "caption": "Comparison with robust aggregation. Krum, median and trimmed mean resist the same attacks but require the server to see every individual update; ours hides all updates from the server at a small accuracy cost. 16 seeds.",
+   "slide": "new slide",
+   "section": "RQ2"
+  },
+  {
+   "id": "F20_second_dataset_covertype",
+   "caption": "Second dataset (Forest Covertype, 4 wilderness-area silos, MLP with 1,665 parameters). Client-level DP is expensive at this size and distributed DP shows no advantage over local DP with only 4 clients (a negative result); poisoning is only partly recovered.",
+   "slide": "backup slide",
+   "section": "RQ5"
+  },
+  {
+   "id": "F17_zk_proof_cost",
+   "caption": "Cost of the zero-knowledge norm proof against model size: linear in the number of parameters (0.3 s at 14 parameters, 2.9 s at 256), so practical only for small models.",
+   "slide": "new slide",
+   "section": "RQ3"
+  },
+  {
+   "id": "F18_chain_backends",
+   "caption": "The same federation on one Hardhat node and on a real 4-validator QBFT network, with the contract verifying the aggregate. Gas differs because newer EVM hard forks reprice modexp.",
+   "slide": "slide 23",
+   "section": "RQ3"
+  },
+  {
+   "id": "F01_architecture",
+   "caption": "System architecture: hospitals, an untrusted server and the contract on a BFT chain; green marks zero-knowledge and on-chain verification.",
+   "slide": "architecture slide",
+   "section": "design"
+  },
+  {
+   "id": "F21_zk_proof",
+   "caption": "The zero-knowledge proof that a committed update has bounded L2 norm: per-coordinate commitments and a Sigma proof of squares, a slack commitment, and a bit-decomposition range proof.",
+   "slide": "new slide",
+   "section": "design"
+  },
+  {
+   "id": "F22_defence_coverage",
+   "caption": "Defence coverage: which mechanism is the primary defence (filled) or a contributing one (open) for each attack. Each row is backed by a test and an experiment.",
+   "slide": "slide 20 (alt.)",
+   "section": "design"
+  },
+  {
+   "id": "F23_qbft_network",
+   "caption": "Real multi-node blockchain: 4 Besu validators on QBFT consensus tolerate 1 fault and halt safely with 2 down.",
+   "slide": "new slide",
+   "section": "design"
+  },
+  {
+   "id": "F24_distributed_protocol",
+   "caption": "One federated round as messages between separate OS processes: hospitals, the untrusted server and the contract.",
+   "slide": "new slide",
+   "section": "design"
+  },
+  {
+   "id": "F04_mia_roc_curves",
+   "caption": "ROC curves of the loss-threshold membership-inference attack on planted canary records (log-log, the low-false-positive regime that matters for privacy). Without DP the curve lies above the diagonal; at epsilon <= 16 it collapses onto it. Mean over 6 seeds.",
+   "slide": "slide 18 (alt.)",
+   "section": "RQ2"
+  },
+  {
+   "id": "F05_server_view_leakage",
+   "caption": "Cosine similarity between what the server receives from a hospital and that hospital's true update. Without secure aggregation the server reads every update (1.0); with it the similarity is zero for 4, 8 and 16 hospitals. 8 seeds.",
+   "slide": "slide 19",
+   "section": "RQ2"
+  },
+  {
+   "id": "F08_accuracy_vs_exposure",
+   "caption": "Security against privacy exposure for each defence policy. ZK norm proofs reach the best accuracy with zero exposure of any hospital's data; the validation gate buys accuracy by opening honest hospitals in a third to a half of the rounds. Up and to the left is better.",
+   "slide": "new slide",
+   "section": "RQ2"
+  },
+  {
+   "id": "F11_convergence_curves",
+   "caption": "Test accuracy per round (mean +/- s.d., 10 seeds, 8 hospitals, epsilon = 8 over 15 rounds). Our system tracks FedAvg closely and clearly beats local DP; under a sign-flip poisoner the undefended model is destroyed while the defended one recovers after the attacker is banned.",
+   "slide": "slide 17/21 (alt.)",
+   "section": "RQ1"
+  },
+  {
+   "id": "F12_per_hospital_accuracy",
+   "caption": "Accuracy on each hospital's own held-out patients. The four real silos differ in size and case mix, so DP noise does not cost every hospital equally; 10 seeds, 4 hospitals, epsilon = 8.",
+   "slide": "backup slide",
+   "section": "RQ5"
+  },
+  {
+   "id": "F10_ablation_layers",
+   "caption": "Ablation: what each layer buys. Rows add one component at a time (FedAvg -> + DP -> + secure aggregation -> + ledger (commit, audit, verify) -> + validation gate -> + blame phase); columns are scenarios. Left: final accuracy. Right: whether the attack was detected. The gate rows train on 8% less data (held out as the public validation set), which costs about 0.02 on the honest run. 8 seeds, 8 hospitals.",
+   "slide": "new slide",
+   "section": "RQ2"
+  },
+  {
+   "id": "F14_epsilon_over_rounds",
+   "caption": "Privacy budget consumed per round as recorded by the contract, with 16 hospitals and 0/20/40% dropout (5 seeds). Dropped hospitals take their noise share with them, so the effective noise falls and epsilon grows faster than planned.",
+   "slide": "slide 24 (alt.)",
+   "section": "RQ3"
+  },
+  {
+   "id": "F19_gas_breakdown",
+   "caption": "Measured gas by contract method for 5 rounds with 8 hospitals, on-chain verification of the aggregate and ZK proof hashes. Round opening and the on-chain homomorphic check dominate.",
+   "slide": "slide 23 (alt.)",
+   "section": "RQ3"
+  }
+ ],
+ "tables": [
+  {
+   "id": "T01_privacy_utility",
+   "caption": "Privacy-utility trade-off (5 rounds, 8 seeds, mean \u00b1 s.d.).",
+   "section": "RQ1",
+   "index": false
+  },
+  {
+   "id": "T02_rounds_ablation",
+   "caption": "Effect of the number of communication rounds at epsilon = 8.",
+   "section": "RQ1",
+   "index": false
+  },
+  {
+   "id": "T03_membership_inference",
+   "caption": "Membership inference on planted canary records (5 seeds).",
+   "section": "RQ2",
+   "index": false
+  },
+  {
+   "id": "T04_attack_matrix",
+   "caption": "Attack matrix: undefended vs defended (20 seeds).",
+   "section": "RQ2",
+   "index": false
+  },
+  {
+   "id": "T05_adaptive_defences",
+   "caption": "Audit policies against persistent and sleeper poisoners.",
+   "section": "RQ2",
+   "index": false
+  },
+  {
+   "id": "T06_vs_robust_aggregation",
+   "caption": "Accuracy under attack: robust aggregation baselines vs our system (16 seeds).",
+   "section": "RQ2",
+   "index": false
+  },
+  {
+   "id": "T13_ablation_accuracy",
+   "caption": "Ablation: final accuracy as layers are added (8 seeds).",
+   "section": "RQ2",
+   "index": false
+  },
+  {
+   "id": "T14_per_hospital_accuracy",
+   "caption": "Accuracy on each hospital's own test set (10 seeds, epsilon = 8).",
+   "section": "RQ5",
+   "index": false
+  },
+  {
+   "id": "T07_second_dataset",
+   "caption": "Forest Covertype, MLP with 1,665 parameters (4 seeds).",
+   "section": "RQ5",
+   "index": false
+  },
+  {
+   "id": "T08_zk_cost",
+   "caption": "Zero-knowledge norm proof: cost against model size.",
+   "section": "RQ3",
+   "index": false
+  },
+  {
+   "id": "T09_chain_backends",
+   "caption": "Real chains with on-chain verification: Hardhat (1 node) vs Besu QBFT (4 validators).",
+   "section": "RQ3",
+   "index": false
+  },
+  {
+   "id": "T10_chain_overhead",
+   "caption": "Measured gas and latency on the real chain vs number of hospitals (5 rounds).",
+   "section": "RQ3",
+   "index": false
+  },
+  {
+   "id": "T11_distributed_run",
+   "caption": "Distributed run: server and hospitals as separate OS processes (one with a real crash).",
+   "section": "RQ3",
+   "index": false
+  },
+  {
+   "id": "T12_dropout",
+   "caption": "Dropout tolerance with 16 hospitals (3 seeds).",
+   "section": "RQ3",
+   "index": false
+  },
+  {
+   "id": "T15_audit_tradeoff",
+   "caption": "Audit rate, audit mode and detection (20 seeds).",
+   "section": "RQ2",
+   "index": false
+  },
+  {
+   "id": "T16_overhead_simulated",
+   "caption": "Per-layer overhead against number of hospitals (simulated ledger: gas is an estimate).",
+   "section": "RQ3",
+   "index": false
+  },
+  {
+   "id": "T17_gas_breakdown",
+   "caption": "Measured gas by contract method (8 hospitals, 5 rounds).",
+   "section": "RQ3",
+   "index": false
+  },
+  {
+   "id": "T18_dataset",
+   "caption": "UCI Heart Disease: the four real hospital silos (75% train / 25% test per silo).",
+   "section": "setup",
+   "index": false
+  },
+  {
+   "id": "T19_experimental_setup",
+   "caption": "Experimental setup.",
+   "section": "setup",
+   "index": false
+  },
+  {
+   "id": "T20_defence_coverage",
+   "caption": "Which defence stops which attack.",
+   "section": "design",
+   "index": false
+  },
+  {
+   "id": "T21_test_inventory",
+   "caption": "Automated tests (parametrised cases not expanded).",
+   "section": "reproducibility",
+   "index": false
+  },
+  {
+   "id": "T22_limitations",
+   "caption": "Known limitations and what is not claimed.",
+   "section": "limits",
+   "index": false
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+**Attack matrix: undefended vs defended (20 seeds).**
+
+| attack                          | defence                      | accuracy    | detected   |   rejected rounds |   seeds |
+|:--------------------------------|:-----------------------------|:------------|:-----------|------------------:|--------:|
+| missing DP noise (under-report) | FedAvg+DP+SecAgg (no ledger) | 0.81 ± 0.03 | 0%         |             0.000 |      20 |
+| missing DP noise (under-report) | ours, audit 25%              | 0.81 ± 0.03 | 100%       |             0.000 |      20 |
+| missing DP noise (under-report) | ours, audit 50%              | 0.80 ± 0.03 | 100%       |             0.000 |      20 |
+| none                            | FedAvg+DP+SecAgg (no ledger) | 0.80 ± 0.03 | 0%         |             0.000 |      20 |
+| none                            | ours, audit 25%              | 0.80 ± 0.02 | 0%         |             0.000 |      20 |
+| none                            | ours, audit 50%              | 0.80 ± 0.03 | 0%         |             0.000 |      20 |
+| over-budget declaration         | FedAvg+DP+SecAgg (no ledger) | 0.81 ± 0.03 | 0%         |             0.000 |      20 |
+| over-budget declaration         | ours, audit 25%              | 0.80 ± 0.03 | 100%       |             1.000 |      20 |
+| over-budget declaration         | ours, audit 50%              | 0.80 ± 0.03 | 100%       |             1.000 |      20 |
+| poison: label-flip (2 clients)  | FedAvg+DP+SecAgg (no ledger) | 0.76 ± 0.04 | 0%         |             0.000 |      20 |
+| poison: label-flip (2 clients)  | ours, audit 25%              | 0.77 ± 0.04 | 0%         |             0.000 |      20 |
+| poison: label-flip (2 clients)  | ours, audit 50%              | 0.76 ± 0.04 | 0%         |             0.000 |      20 |
+| poison: sign-flip x10           | FedAvg+DP+SecAgg (no ledger) | 0.33 ± 0.05 | 0%         |             0.000 |      20 |
+| poison: sign-flip x10           | ours, audit 25%              | 0.74 ± 0.16 | 95%        |             0.000 |      20 |
+| poison: sign-flip x10           | ours, audit 50%              | 0.77 ± 0.08 | 100%       |             0.000 |      20 |
+| server drops a client           | FedAvg+DP+SecAgg (no ledger) | 0.80 ± 0.04 | 0%         |             0.000 |      20 |
+| server drops a client           | ours, audit 25%              | 0.80 ± 0.03 | 100%       |             4.000 |      20 |
+| server drops a client           | ours, audit 50%              | 0.80 ± 0.03 | 100%       |             4.000 |      20 |
+| server reverses aggregate       | FedAvg+DP+SecAgg (no ledger) | 0.68 ± 0.12 | 0%         |             0.000 |      20 |
+| server reverses aggregate       | ours, audit 25%              | 0.79 ± 0.04 | 100%       |             4.000 |      20 |
+| server reverses aggregate       | ours, audit 50%              | 0.80 ± 0.03 | 100%       |             4.000 |      20 |
+| stealth poison (forged input)   | FedAvg+DP+SecAgg (no ledger) | 0.70 ± 0.07 | 0%         |             0.000 |      20 |
+| stealth poison (forged input)   | ours, audit 25%              | 0.79 ± 0.03 | 100%       |             4.000 |      20 |
+| stealth poison (forged input)   | ours, audit 50%              | 0.79 ± 0.03 | 100%       |             4.000 |      20 |

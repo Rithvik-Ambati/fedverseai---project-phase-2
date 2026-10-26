@@ -1,0 +1,14 @@
+numpy
+pandas
+torch
+scikit-learn
+cryptography
+streamlit
+altair
+matplotlib
+web3
+pytest
+# only needed to rebuild the report pack (python -m report.build_report)
+python-docx
+openpyxl
+tabulate

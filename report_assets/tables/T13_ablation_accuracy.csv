@@ -1,0 +1,7 @@
+layer,client skips DP noise,honest,poisoner (sign-flip x10),server reverses aggregate,stealth forger
+1 FedAvg,0.82,0.82,0.33,0.81,0.74
+2 + DP (noise),0.81,0.81,0.32,0.71,0.68
+3 + SecAgg,0.81,0.81,0.32,0.71,0.68
+"4 + ledger (commit, audit, verify)",0.81,0.81,0.65,0.80,0.79
+5 + validation gate,0.81,0.79,0.78,0.80,0.80
+6 + blame phase,0.81,0.79,0.78,0.81,0.79

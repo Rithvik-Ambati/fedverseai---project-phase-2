@@ -1,0 +1,8 @@
+{
+  "name": "fedsec-chain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Solidity contract + local Hardhat chain for the secure federated learning ledger",
+  "scripts": { "node": "hardhat node", "compile": "hardhat compile" },
+  "devDependencies": { "hardhat": "^2.22.0" }
+}

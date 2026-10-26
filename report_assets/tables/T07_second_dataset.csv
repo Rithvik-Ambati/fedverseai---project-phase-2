@@ -1,0 +1,8 @@
+setting,eps_target,accuracy,AUC,seeds
+distributed DP,8.0,0.580 ± 0.042,0.567 ± 0.042,4
+distributed DP,32.0,0.592 ± 0.039,0.587 ± 0.026,4
+local DP,8.0,0.576 ± 0.055,0.559 ± 0.040,4
+local DP,32.0,0.584 ± 0.036,0.571 ± 0.041,4
+no DP,none,0.778 ± 0.008,0.854 ± 0.013,4
+"sign-flip, audit 25% + gate",none,0.622 ± 0.012,0.683 ± 0.027,4
+"sign-flip, no defence",none,0.374 ± 0.008,0.477 ± 0.005,4
